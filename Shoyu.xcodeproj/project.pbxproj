@@ -122,16 +122,10 @@
 		465EEFA91C1E4481007681E2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6C3FFCF51C6DCF3100A79497 /* TableView */,
 				6C3FFCDB1C6D7E0300A79497 /* CollectionView */,
-				467CAD7A1C20174A00DC33D1 /* TableSource.swift */,
-				467CAD781C20174A00DC33D1 /* TableSection.swift */,
-				463AFACE1C2242FF00330B4F /* TableSectionType.swift */,
-				467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */,
-				463AFAD01C22431F00330B4F /* SectionHeaderFooterType.swift */,
-				467CAD771C20174A00DC33D1 /* Row.swift */,
-				463AFACC1C2242DF00330B4F /* RowType.swift */,
 				467CAD761C20174A00DC33D1 /* ReuseIdentifier.swift */,
-				467CAD7B1C20174A00DC33D1 /* UITableView+Source.swift */,
+				467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -195,13 +189,27 @@
 			isa = PBXGroup;
 			children = (
 				6C3FFCDC1C6D7E1200A79497 /* CollectionSource.swift */,
+				6C3FFCEF1C6DCE8F00A79497 /* CollectionSection.swift */,
+				6C3FFCF11C6DCEF000A79497 /* CollectionSectionType.swift */,
 				6C3FFCE31C6D8B1100A79497 /* Item.swift */,
 				6C3FFCE51C6D8B3500A79497 /* ItemType.swift */,
 				6C3FFCED1C6DCDB600A79497 /* UICollectionView+CollectionSource.swift */,
-				6C3FFCEF1C6DCE8F00A79497 /* CollectionSection.swift */,
-				6C3FFCF11C6DCEF000A79497 /* CollectionSectionType.swift */,
 			);
 			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		6C3FFCF51C6DCF3100A79497 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				467CAD7A1C20174A00DC33D1 /* TableSource.swift */,
+				467CAD781C20174A00DC33D1 /* TableSection.swift */,
+				463AFACE1C2242FF00330B4F /* TableSectionType.swift */,
+				463AFAD01C22431F00330B4F /* SectionHeaderFooterType.swift */,
+				467CAD771C20174A00DC33D1 /* Row.swift */,
+				463AFACC1C2242DF00330B4F /* RowType.swift */,
+				467CAD7B1C20174A00DC33D1 /* UITableView+Source.swift */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

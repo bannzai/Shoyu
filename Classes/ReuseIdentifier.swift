@@ -19,3 +19,4 @@ extension ReuseIdentifierType {
 }
 
 extension UITableViewCell: ReuseIdentifierType { }
+extension UICollectionViewCell: ReuseIdentifierType { }

@@ -20,4 +20,9 @@ public protocol SectionType {
     
     func removeRow(index: Int) -> RowType
     func insertRow(row: RowType, index: Int)
+    
+    var items: [ItemType] { get }
+    var itemCount: Int { get }
+    func itemFor(item: Int) -> ItemType
+    func itemFor(indexPath: NSIndexPath) -> ItemType
 }

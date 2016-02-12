@@ -18,9 +18,9 @@
 		467CAD801C20174A00DC33D1 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD771C20174A00DC33D1 /* Row.swift */; };
 		467CAD831C20174A00DC33D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD781C20174A00DC33D1 /* Section.swift */; };
 		467CAD861C20174A00DC33D1 /* SectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */; };
-		467CAD891C20174A00DC33D1 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7A1C20174A00DC33D1 /* Source.swift */; };
+		467CAD891C20174A00DC33D1 /* TableSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7A1C20174A00DC33D1 /* TableSource.swift */; };
 		467CAD8C1C20174A00DC33D1 /* UITableView+Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7B1C20174A00DC33D1 /* UITableView+Source.swift */; };
-		46F82E991C55B390009B0271 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7A1C20174A00DC33D1 /* Source.swift */; };
+		46F82E991C55B390009B0271 /* TableSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7A1C20174A00DC33D1 /* TableSource.swift */; };
 		46F82E9A1C55B390009B0271 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD781C20174A00DC33D1 /* Section.swift */; };
 		46F82E9B1C55B390009B0271 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AFACE1C2242FF00330B4F /* SectionType.swift */; };
 		46F82E9C1C55B390009B0271 /* SectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */; };
@@ -37,7 +37,7 @@
 		46F82ECA1C55B50E009B0271 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46F82EC31C55B50E009B0271 /* Info.plist */; };
 		46F82ECB1C55B50E009B0271 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F82EC41C55B50E009B0271 /* TableViewController.swift */; };
 		46F82ECC1C55B50E009B0271 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F82EC51C55B50E009B0271 /* ViewController.swift */; };
-		46F82ECD1C55B530009B0271 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7A1C20174A00DC33D1 /* Source.swift */; };
+		46F82ECD1C55B530009B0271 /* TableSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7A1C20174A00DC33D1 /* TableSource.swift */; };
 		46F82ECE1C55B530009B0271 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD781C20174A00DC33D1 /* Section.swift */; };
 		46F82ECF1C55B530009B0271 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AFACE1C2242FF00330B4F /* SectionType.swift */; };
 		46F82ED01C55B530009B0271 /* SectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */; };
@@ -70,7 +70,7 @@
 		467CAD771C20174A00DC33D1 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		467CAD781C20174A00DC33D1 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooter.swift; sourceTree = "<group>"; };
-		467CAD7A1C20174A00DC33D1 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		467CAD7A1C20174A00DC33D1 /* TableSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSource.swift; sourceTree = "<group>"; };
 		467CAD7B1C20174A00DC33D1 /* UITableView+Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Source.swift"; sourceTree = "<group>"; };
 		46A77B631C1B49FB002618EF /* Shoyu.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Shoyu.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F82E911C55B389009B0271 /* Shoyu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shoyu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				6C3FFCDB1C6D7E0300A79497 /* CollectionView */,
-				467CAD7A1C20174A00DC33D1 /* Source.swift */,
+				467CAD7A1C20174A00DC33D1 /* TableSource.swift */,
 				467CAD781C20174A00DC33D1 /* Section.swift */,
 				463AFACE1C2242FF00330B4F /* SectionType.swift */,
 				467CAD791C20174A00DC33D1 /* SectionHeaderFooter.swift */,
@@ -342,7 +342,7 @@
 			files = (
 				6C3FFCEC1C6D9AE700A79497 /* ItemType.swift in Sources */,
 				6C3FFCEB1C6D9ADF00A79497 /* Item.swift in Sources */,
-				467CAD891C20174A00DC33D1 /* Source.swift in Sources */,
+				467CAD891C20174A00DC33D1 /* TableSource.swift in Sources */,
 				463AFAD21C22439A00330B4F /* SectionType.swift in Sources */,
 				463AFAD41C22439A00330B4F /* RowType.swift in Sources */,
 				467CAD641C2009F500DC33D1 /* TableSourceTests.swift in Sources */,
@@ -363,7 +363,7 @@
 			files = (
 				6C3FFCEA1C6D9A9100A79497 /* ItemType.swift in Sources */,
 				6C3FFCE91C6D9A8B00A79497 /* Item.swift in Sources */,
-				46F82E991C55B390009B0271 /* Source.swift in Sources */,
+				46F82E991C55B390009B0271 /* TableSource.swift in Sources */,
 				46F82E9C1C55B390009B0271 /* SectionHeaderFooter.swift in Sources */,
 				46F82E9A1C55B390009B0271 /* Section.swift in Sources */,
 				6C3FFCDD1C6D7E1200A79497 /* CollectionSource.swift in Sources */,
@@ -385,7 +385,7 @@
 				6C3FFCE11C6D817D00A79497 /* CollectionViewController.swift in Sources */,
 				46F82ECE1C55B530009B0271 /* Section.swift in Sources */,
 				46F82ED21C55B530009B0271 /* Row.swift in Sources */,
-				46F82ECD1C55B530009B0271 /* Source.swift in Sources */,
+				46F82ECD1C55B530009B0271 /* TableSource.swift in Sources */,
 				46F82ED01C55B530009B0271 /* SectionHeaderFooter.swift in Sources */,
 				46F82ECC1C55B50E009B0271 /* ViewController.swift in Sources */,
 				46F82ED41C55B530009B0271 /* ReuseIdentifier.swift in Sources */,

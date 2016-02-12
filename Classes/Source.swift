@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class Source: NSObject {
+public final class TableSource: NSObject {
     public private(set) var sections = [SectionType]()
     
     public override init() {
         super.init()
     }
     
-    public convenience init(@noescape closure: (Source -> Void)) {
+    public convenience init(@noescape closure: (TableSource -> Void)) {
         self.init()
         closure(self)
     }
@@ -47,10 +47,9 @@ public class Source: NSObject {
     public func createSections<H, F>(count: UInt, @noescape closure: ((UInt, Section<H, F>) -> Void)) -> Self {
         return createSections([UInt](0..<count), closure: closure)
     }
-    
 }
 
-public extension Source {
+public extension TableSource {
     public func sectionFor(section: Int) -> SectionType {
         return sections[section]
     }
@@ -67,7 +66,7 @@ public extension Source {
 
 // MARK: - Table view data source
 
-extension Source: UITableViewDataSource {
+extension TableSource: UITableViewDataSource {
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
     }
@@ -160,7 +159,7 @@ extension Source: UITableViewDataSource {
 
 // MARK: - Table view delegate
 
-extension Source: UITableViewDelegate {
+extension TableSource: UITableViewDelegate {
     public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let row = sectionFor(indexPath).rowFor(indexPath)
         if let delegate = row as? RowDelegateType,
@@ -219,7 +218,7 @@ extension Source: UITableViewDelegate {
 
 // MARK: Private method
 
-extension Source {
+extension TableSource {
     private func sectionHeaderFooterViewFor(headerFooter: SectionHeaderFooterType, tableView: UITableView, section: Int) -> UIView? {
         // Dequeue
         if let identifier = headerFooter.reuseIdentifier,

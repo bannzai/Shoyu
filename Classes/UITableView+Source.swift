@@ -14,14 +14,14 @@ struct UITableViewAssociatedObjectHandle {
 }
 
 public extension UITableView {
-    public var source: Source? {
+    public var source: TableSource? {
         set {
             objc_setAssociatedObject(self, &UITableViewAssociatedObjectHandle.Source, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             dataSource = newValue
             delegate = newValue
         }
         get {
-            return objc_getAssociatedObject(self, &UITableViewAssociatedObjectHandle.Source) as? Source
+            return objc_getAssociatedObject(self, &UITableViewAssociatedObjectHandle.Source) as? TableSource
         }
     }
 }

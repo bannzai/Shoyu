@@ -12,7 +12,7 @@
 		463AFAD41C22439A00330B4F /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AFACC1C2242DF00330B4F /* RowType.swift */; };
 		467CAD5E1C2009F500DC33D1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 467CAD591C2009F500DC33D1 /* Info.plist */; };
 		467CAD601C2009F500DC33D1 /* RowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD5A1C2009F500DC33D1 /* RowTests.swift */; };
-		467CAD621C2009F500DC33D1 /* SectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD5B1C2009F500DC33D1 /* SectionTests.swift */; };
+		467CAD621C2009F500DC33D1 /* TableSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD5B1C2009F500DC33D1 /* TableSectionTests.swift */; };
 		467CAD641C2009F500DC33D1 /* TableSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD5C1C2009F500DC33D1 /* TableSourceTests.swift */; };
 		467CAD7D1C20174A00DC33D1 /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD761C20174A00DC33D1 /* ReuseIdentifier.swift */; };
 		467CAD801C20174A00DC33D1 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD771C20174A00DC33D1 /* Row.swift */; };
@@ -63,7 +63,7 @@
 		463AFAD01C22431F00330B4F /* SectionHeaderFooterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooterType.swift; sourceTree = "<group>"; };
 		467CAD591C2009F500DC33D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		467CAD5A1C2009F500DC33D1 /* RowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowTests.swift; sourceTree = "<group>"; };
-		467CAD5B1C2009F500DC33D1 /* SectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTests.swift; sourceTree = "<group>"; };
+		467CAD5B1C2009F500DC33D1 /* TableSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionTests.swift; sourceTree = "<group>"; };
 		467CAD5C1C2009F500DC33D1 /* TableSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSourceTests.swift; sourceTree = "<group>"; };
 		467CAD761C20174A00DC33D1 /* ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 		467CAD771C20174A00DC33D1 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				467CAD591C2009F500DC33D1 /* Info.plist */,
 				467CAD5A1C2009F500DC33D1 /* RowTests.swift */,
-				467CAD5B1C2009F500DC33D1 /* SectionTests.swift */,
+				467CAD5B1C2009F500DC33D1 /* TableSectionTests.swift */,
 				467CAD5C1C2009F500DC33D1 /* TableSourceTests.swift */,
 			);
 			path = ShoyuTests;
@@ -345,7 +345,7 @@
 				467CAD641C2009F500DC33D1 /* TableSourceTests.swift in Sources */,
 				467CAD601C2009F500DC33D1 /* RowTests.swift in Sources */,
 				467CAD861C20174A00DC33D1 /* SectionHeaderFooter.swift in Sources */,
-				467CAD621C2009F500DC33D1 /* SectionTests.swift in Sources */,
+				467CAD621C2009F500DC33D1 /* TableSectionTests.swift in Sources */,
 				467CAD8C1C20174A00DC33D1 /* UITableView+Source.swift in Sources */,
 				467CAD831C20174A00DC33D1 /* Section.swift in Sources */,
 				467CAD801C20174A00DC33D1 /* Row.swift in Sources */,

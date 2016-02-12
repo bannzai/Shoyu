@@ -28,17 +28,3 @@ protocol RowDelegateType {
     func didRemove(tableView: UITableView, indexPath: NSIndexPath)
 }
 
-protocol ItemDelegateType {
-    func configureCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: NSIndexPath)
-    func sizeFor(tableView: UICollectionView, indexPath: NSIndexPath) -> CGSize?
-//    func canEdit(tableView: UICollectionView, indexPath: NSIndexPath) -> Bool
-//    func canRemove(tableView: UICollectionView, indexPath: NSIndexPath) -> Bool
-//    func canMove(tableView: UICollectionView, indexPath: NSIndexPath) -> Bool
-//    func canMoveTo(tableView: UICollectionView, sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) -> Bool
-    func didSelect(tableView: UICollectionView, indexPath: NSIndexPath)
-//    func didDeselect(tableView: UICollectionView, indexPath: NSIndexPath)
-//    func willDisplayCell(tableView: UICollectionView, cell: UICollectionViewCell, indexPath: NSIndexPath)
-//    func didEndDisplayCell(tableView: UICollectionView, cell: UICollectionViewCell, indexPath: NSIndexPath)
-//    func willRemove(tableView: UICollectionView, indexPath: NSIndexPath) -> UICollectionViewRowAnimation
-//    func didRemove(tableView: UICollectionView, indexPath: NSIndexPath)
-}

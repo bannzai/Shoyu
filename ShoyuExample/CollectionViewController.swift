@@ -9,25 +9,25 @@
 import UIKit
 
 class CollectionViewController: UIViewController {
-
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     class var baseShoyus: [SoySauce] {
-     return [
-        SoySauce(name: "curry"),
-        SoySauce(name: "ebi"),
-        SoySauce(name: "inaka"),
-        SoySauce(name: "kake"),
-        SoySauce(name: "kaki"),
-        SoySauce(name: "kikkoman"),
-        SoySauce(name: "koori"),
-        SoySauce(name: "koumi"),
-        SoySauce(name: "marudaizu"),
-        SoySauce(name: "ninniku"),
-        SoySauce(name: "siro"),
-        SoySauce(name: "ususio")
-    ]   
+        return [
+            SoySauce(name: "curry"),
+            SoySauce(name: "ebi"),
+            SoySauce(name: "inaka"),
+            SoySauce(name: "kake"),
+            SoySauce(name: "kaki"),
+            SoySauce(name: "kikkoman"),
+            SoySauce(name: "koori"),
+            SoySauce(name: "koumi"),
+            SoySauce(name: "marudaizu"),
+            SoySauce(name: "ninniku"),
+            SoySauce(name: "siro"),
+            SoySauce(name: "ususio")
+        ]   
     }
     
     let shoyus = Array(count: 10, repeatedValue: CollectionViewController.baseShoyus).flatMap { $0 }

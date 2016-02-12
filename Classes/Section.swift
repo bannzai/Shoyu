@@ -8,21 +8,20 @@
 
 import UIKit
 
-public class Section<HeaderType: UIView, FooterType: UIView>: SectionType {
+public class TableSection<HeaderType: UIView, FooterType: UIView>: TableSectionType {
     public private(set) var rows: [RowType] = []
-    public private(set) var items: [ItemType] = []
     
     public var header: SectionHeaderFooterType?
     public var footer: SectionHeaderFooterType?
     
     public init() { }
     
-    public init(@noescape closure: (Section<HeaderType, FooterType> -> Void)) {
+    public init(@noescape closure: (TableSection<HeaderType, FooterType> -> Void)) {
         closure(self)
     }
 }
 
-extension Section {
+extension TableSection {
     public var rowCount: Int { return rows.count }
     
     public func rowFor(row: Int) -> RowType {
@@ -42,19 +41,7 @@ extension Section {
     }
 }
 
-extension Section {
-    public var itemCount: Int { return items.count }
-    
-    public func itemFor(item: Int) -> ItemType {
-        return items[item]
-    }
-    
-    public func itemFor(indexPath: NSIndexPath) -> ItemType {
-        return itemFor(indexPath.item)
-    }
-}
-
-extension Section {
+extension TableSection {
     public func addRow(row: RowType) -> Self {
         rows.append(row)
         return self
@@ -101,7 +88,29 @@ extension Section {
     }
 }
 
-extension Section {
+public final class CollectionSection<HeaderType: UIView, FooterType: UIView> {
+    public private(set) var items: [ItemType] = []
+    
+    public init() { }
+    
+    public init(@noescape closure: (CollectionSection<HeaderType, FooterType> -> Void)) {
+        closure(self)
+    }
+}
+
+extension CollectionSection {
+    public var itemCount: Int { return items.count }
+    
+    public func itemFor(item: Int) -> ItemType {
+        return items[item]
+    }
+    
+    public func itemFor(indexPath: NSIndexPath) -> ItemType {
+        return itemFor(indexPath.item)
+    }
+}
+
+extension CollectionSection {
     public func addItem(item: ItemType) -> Self {
         items.append(item)
         return self

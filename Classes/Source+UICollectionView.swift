@@ -27,7 +27,7 @@ public extension UICollectionView {
 }
 
 public final class CollectionSource: NSObject {
-    public private(set) var sections = [SectionType]()
+    public private(set) var sections = [CollectionSectionType]()
     
     public override init() {
         super.init()
@@ -40,45 +40,40 @@ public final class CollectionSource: NSObject {
     
     public var didMoveRow: ((NSIndexPath, NSIndexPath) -> Void)?
     
-    public func addSection(section: SectionType) -> Self {
+    public func addSection(section: CollectionSectionType) -> Self {
         sections.append(section)
         return self
     }
     
-    public func addSections(sections: [SectionType]) -> Self {
+    public func addSections(sections: [CollectionSectionType]) -> Self {
         self.sections.appendContentsOf(sections)
         return self
     }
     
-    public func createSection<H, F>(@noescape closure: (Section<H, F> -> Void)) -> Self {
-        return addSection(Section<H, F>() { closure($0) })
+    public func createSection<H, F>(@noescape closure: (CollectionSection<H, F> -> Void)) -> Self {
+        return addSection(CollectionSection<H, F>() { closure($0) })
     }
     
-    public func createSections<H, F, E>(elements: [E], @noescape closure: ((E, Section<H, F>) -> Void)) -> Self {
+    public func createSections<H, F, E>(elements: [E], @noescape closure: ((E, CollectionSection<H, F>) -> Void)) -> Self {
         return addSections(
-            elements.map { element -> Section<H, F> in
-                return Section<H, F>() { closure(element, $0) }
-                }.map { $0 as SectionType }
+            elements.map { element -> CollectionSection<H, F> in
+                return CollectionSection<H, F>() { closure(element, $0) }
+                }.map { $0 as CollectionSectionType }
         )
     }
     
-    public func createSections<H, F>(count: UInt, @noescape closure: ((UInt, Section<H, F>) -> Void)) -> Self {
+    public func createSections<H, F>(count: UInt, @noescape closure: ((UInt, CollectionSection<H, F>) -> Void)) -> Self {
         return createSections([UInt](0..<count), closure: closure)
     }
 }
 
 public extension CollectionSource {
-    public func sectionFor(section: Int) -> SectionType {
+    public func sectionFor(section: Int) -> CollectionSectionType {
         return sections[section]
     }
     
-    public func sectionFor(indexPath: NSIndexPath) -> SectionType {
+    public func sectionFor(indexPath: NSIndexPath) -> CollectionSectionType {
         return sectionFor(indexPath.section)
-    }
-    
-    public func moveRow(sourceIndexPath: NSIndexPath, destinationIndexPath: NSIndexPath) {
-        let row = sectionFor(sourceIndexPath).removeRow(sourceIndexPath.row)
-        sectionFor(destinationIndexPath).insertRow(row, index: destinationIndexPath.row)
     }
 }
 

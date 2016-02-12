@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol SectionType {
+public protocol TableSectionType {
     var rows: [RowType] { get }
     
     var header: SectionHeaderFooterType? { get }
@@ -20,7 +20,9 @@ public protocol SectionType {
     
     func removeRow(index: Int) -> RowType
     func insertRow(row: RowType, index: Int)
-    
+}
+
+public protocol CollectionSectionType {
     var items: [ItemType] { get }
     var itemCount: Int { get }
     func itemFor(item: Int) -> ItemType

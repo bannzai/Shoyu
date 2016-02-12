@@ -48,6 +48,13 @@
 		46F82ED51C55B530009B0271 /* UITableView+Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CAD7B1C20174A00DC33D1 /* UITableView+Source.swift */; };
 		6C3FFCDD1C6D7E1200A79497 /* Source+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCDC1C6D7E1200A79497 /* Source+UICollectionView.swift */; };
 		6C3FFCE11C6D817D00A79497 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE01C6D817D00A79497 /* CollectionViewController.swift */; };
+		6C3FFCE21C6D85B000A79497 /* Source+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCDC1C6D7E1200A79497 /* Source+UICollectionView.swift */; };
+		6C3FFCE41C6D8B1100A79497 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE31C6D8B1100A79497 /* Item.swift */; };
+		6C3FFCE61C6D8B3500A79497 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE51C6D8B3500A79497 /* ItemType.swift */; };
+		6C3FFCE91C6D9A8B00A79497 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE31C6D8B1100A79497 /* Item.swift */; };
+		6C3FFCEA1C6D9A9100A79497 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE51C6D8B3500A79497 /* ItemType.swift */; };
+		6C3FFCEB1C6D9ADF00A79497 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE31C6D8B1100A79497 /* Item.swift */; };
+		6C3FFCEC1C6D9AE700A79497 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCE51C6D8B3500A79497 /* ItemType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +84,8 @@
 		46F82EC51C55B50E009B0271 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C3FFCDC1C6D7E1200A79497 /* Source+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Source+UICollectionView.swift"; sourceTree = "<group>"; };
 		6C3FFCE01C6D817D00A79497 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		6C3FFCE31C6D8B1100A79497 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6C3FFCE51C6D8B3500A79497 /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				6C3FFCDC1C6D7E1200A79497 /* Source+UICollectionView.swift */,
+				6C3FFCE31C6D8B1100A79497 /* Item.swift */,
+				6C3FFCE51C6D8B3500A79497 /* ItemType.swift */,
 			);
 			name = CollectionView;
 			sourceTree = "<group>";
@@ -326,6 +337,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3FFCEC1C6D9AE700A79497 /* ItemType.swift in Sources */,
+				6C3FFCEB1C6D9ADF00A79497 /* Item.swift in Sources */,
 				467CAD891C20174A00DC33D1 /* Source.swift in Sources */,
 				463AFAD21C22439A00330B4F /* SectionType.swift in Sources */,
 				463AFAD41C22439A00330B4F /* RowType.swift in Sources */,
@@ -345,6 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3FFCEA1C6D9A9100A79497 /* ItemType.swift in Sources */,
+				6C3FFCE91C6D9A8B00A79497 /* Item.swift in Sources */,
 				46F82E991C55B390009B0271 /* Source.swift in Sources */,
 				46F82E9C1C55B390009B0271 /* SectionHeaderFooter.swift in Sources */,
 				46F82E9A1C55B390009B0271 /* Section.swift in Sources */,
@@ -362,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3FFCE21C6D85B000A79497 /* Source+UICollectionView.swift in Sources */,
 				6C3FFCE11C6D817D00A79497 /* CollectionViewController.swift in Sources */,
 				46F82ECE1C55B530009B0271 /* Section.swift in Sources */,
 				46F82ED21C55B530009B0271 /* Row.swift in Sources */,
@@ -371,6 +387,8 @@
 				46F82ED41C55B530009B0271 /* ReuseIdentifier.swift in Sources */,
 				46F82EC61C55B50E009B0271 /* AppDelegate.swift in Sources */,
 				46F82ECB1C55B50E009B0271 /* TableViewController.swift in Sources */,
+				6C3FFCE61C6D8B3500A79497 /* ItemType.swift in Sources */,
+				6C3FFCE41C6D8B1100A79497 /* Item.swift in Sources */,
 				46F82ED51C55B530009B0271 /* UITableView+Source.swift in Sources */,
 				46F82ECF1C55B530009B0271 /* SectionType.swift in Sources */,
 				46F82ED31C55B530009B0271 /* RowType.swift in Sources */,

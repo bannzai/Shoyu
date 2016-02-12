@@ -11,7 +11,7 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: CollectionView!
     
     class var baseShoyus: [SoySauce] {
         return [
@@ -45,10 +45,7 @@ class CollectionViewController: UIViewController {
             
             section.createItems(shoyus) { (shoyu: SoySauce, item: Item<DefaultCollectionViewCell>) in
                 item.size = gridSize()
-                item.configureCell = { (cell: DefaultCollectionViewCell, _) in
-                    cell.label.text = shoyu.name
-                    cell.imageView.image = UIImage(named: shoyu.name)
-                }
+                item.configureCell = configureGridCell(shoyu)
                 item.didSelect = { (_, _, indexPath) in
                     print(indexPath.item)
                 }
@@ -62,21 +59,57 @@ class CollectionViewController: UIViewController {
         let edge = (UIScreen.mainScreen().bounds.size.width / 3) - 1
         return CGSizeMake(edge, edge)
     }
+
+    private func configureGridCell<T: DefaultCollectionViewCell>(shoyu: SoySauce) -> (T, Item<T>.ItemInformation) -> Void {
+        return { cell, _ in
+            cell.setupWith(DefaultCollectionViewCellModel(shoyu: shoyu))
+        }
+    }
     
     private func configureLargeCell<T: DefaultCollectionViewCell>(index: UInt) -> (T, Item<T>.ItemInformation) -> Void {
+        let shoyu = shoyus[Int(index)]
         return { cell, _ in
-            let index = Int(index)
-            cell.label.text = self.shoyus[index].name
-            cell.imageView.image = UIImage(named: self.shoyus[index].name)
+            cell.setupWith(DefaultCollectionViewCellModel(shoyu: shoyu))
         }
+    }
+    
+    deinit {
+        print("CollectionViewController deinit")
     }
 
 }
 
+struct DefaultCollectionViewCellModel {
+    var shoyu: SoySauce
+    
+    var name: String {
+        return shoyu.name
+    }
+    
+    var image: UIImage? {
+        return UIImage(named: shoyu.name)
+    }
+}
 
 class DefaultCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    func setupWith(viewModel: DefaultCollectionViewCellModel) {
+        label.text = viewModel.name
+        imageView.image = viewModel.image
+    }
+    
+    deinit {
+        print("DefaultviewCell deinit")
+    }
+}
+
+class CollectionView: UICollectionView {
+    
+    deinit {
+        print("CollectionView deinit")
+    }
 }
 
 struct SoySauce {

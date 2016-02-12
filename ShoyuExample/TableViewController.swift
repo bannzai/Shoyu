@@ -118,7 +118,7 @@ class TableViewController: UIViewController {
 }
 
 class DefaultTableViewCell: UITableViewCell {
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     func setupWith(viewModel: DefaultTableViewCellModel) {
         nameLabel.text = viewModel.fullName

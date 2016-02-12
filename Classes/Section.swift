@@ -88,7 +88,7 @@ extension TableSection {
     }
 }
 
-public final class CollectionSection<HeaderType: UIView, FooterType: UIView> {
+public final class CollectionSection<HeaderType: UIView, FooterType: UIView>: CollectionSectionType {
     public private(set) var items: [ItemType] = []
     
     public init() { }

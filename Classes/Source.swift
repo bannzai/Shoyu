@@ -9,7 +9,7 @@
 import UIKit
 
 public final class TableSource: NSObject {
-    public private(set) var sections = [SectionType]()
+    public private(set) var sections = [TableSectionType]()
     
     public override init() {
         super.init()
@@ -22,39 +22,39 @@ public final class TableSource: NSObject {
     
     public var didMoveRow: ((NSIndexPath, NSIndexPath) -> Void)?
     
-    public func addSection(section: SectionType) -> Self {
+    public func addSection(section: TableSectionType) -> Self {
         sections.append(section)
         return self
     }
     
-    public func addSections(sections: [SectionType]) -> Self {
+    public func addSections(sections: [TableSectionType]) -> Self {
         self.sections.appendContentsOf(sections)
         return self
     }
     
-    public func createSection<H, F>(@noescape closure: (Section<H, F> -> Void)) -> Self {
-        return addSection(Section<H, F>() { closure($0) })
+    public func createSection<H, F>(@noescape closure: (TableSection<H, F> -> Void)) -> Self {
+        return addSection(TableSection<H, F>() { closure($0) })
     }
     
-    public func createSections<H, F, E>(elements: [E], @noescape closure: ((E, Section<H, F>) -> Void)) -> Self {
+    public func createSections<H, F, E>(elements: [E], @noescape closure: ((E, TableSection<H, F>) -> Void)) -> Self {
         return addSections(
-            elements.map { element -> Section<H, F> in
-                return Section<H, F>() { closure(element, $0) }
-                }.map { $0 as SectionType }
+            elements.map { element -> TableSection<H, F> in
+                return TableSection<H, F>() { closure(element, $0) }
+                }.map { $0 as TableSectionType }
         )
     }
     
-    public func createSections<H, F>(count: UInt, @noescape closure: ((UInt, Section<H, F>) -> Void)) -> Self {
+    public func createSections<H, F>(count: UInt, @noescape closure: ((UInt, TableSection<H, F>) -> Void)) -> Self {
         return createSections([UInt](0..<count), closure: closure)
     }
 }
 
 public extension TableSource {
-    public func sectionFor(section: Int) -> SectionType {
+    public func sectionFor(section: Int) -> TableSectionType {
         return sections[section]
     }
     
-    public func sectionFor(indexPath: NSIndexPath) -> SectionType {
+    public func sectionFor(indexPath: NSIndexPath) -> TableSectionType {
         return sectionFor(indexPath.section)
     }
     

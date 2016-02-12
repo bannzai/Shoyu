@@ -1,5 +1,5 @@
 //
-//  SectionType.swift
+//  TableSectionType.swift
 //  Shoyu
 //
 //  Created by asai.yuki on 2015/12/17.
@@ -22,9 +22,3 @@ public protocol TableSectionType {
     func insertRow(row: RowType, index: Int)
 }
 
-public protocol CollectionSectionType {
-    var items: [ItemType] { get }
-    var itemCount: Int { get }
-    func itemFor(item: Int) -> ItemType
-    func itemFor(indexPath: NSIndexPath) -> ItemType
-}

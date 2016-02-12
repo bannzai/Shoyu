@@ -179,22 +179,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-Ew-0H9">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3iP-YC-l2n">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="3iP-YC-l2n">
+                                    <size key="itemSize" width="164" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IL3-BG-hXv">
-                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DefaultCollectionViewCell" id="IL3-BG-hXv" customClass="DefaultCollectionViewCell" customModule="ShoyuExample" customModuleProvider="target">
+                                        <rect key="frame" x="78" y="64" width="164" height="185"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="164" height="185"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tzf-jZ-DNS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-E8-9Sm">
+                                                    <rect key="frame" x="0.0" y="164" width="164" height="21"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="X7y-KL-frL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="OYi-E8-9Sm" firstAttribute="top" secondItem="Tzf-jZ-DNS" secondAttribute="bottom" id="CWC-Cu-TJJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="OYi-E8-9Sm" secondAttribute="bottom" id="Q1b-Bz-Z9o"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tzf-jZ-DNS" secondAttribute="trailing" id="UNj-eh-Dty"/>
+                                            <constraint firstAttribute="trailing" secondItem="OYi-E8-9Sm" secondAttribute="trailing" id="cKq-pY-pJ0"/>
+                                            <constraint firstItem="OYi-E8-9Sm" firstAttribute="leading" secondItem="IL3-BG-hXv" secondAttribute="leading" id="kE7-4J-yYp"/>
+                                            <constraint firstItem="Tzf-jZ-DNS" firstAttribute="top" secondItem="IL3-BG-hXv" secondAttribute="top" id="pBF-6X-Qzo"/>
+                                            <constraint firstItem="Tzf-jZ-DNS" firstAttribute="leading" secondItem="IL3-BG-hXv" secondAttribute="leading" id="uTt-Sn-Yfn"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Tzf-jZ-DNS" id="C3A-nW-HOb"/>
+                                            <outlet property="label" destination="OYi-E8-9Sm" id="qbg-G7-ixu"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -202,7 +230,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="l7W-Ew-0H9" firstAttribute="leading" secondItem="CiW-r5-V2S" secondAttribute="leading" id="2U9-NH-gM0"/>
-                            <constraint firstItem="l7W-Ew-0H9" firstAttribute="top" secondItem="O18-wz-XH7" secondAttribute="bottom" id="7Fa-bL-HuT"/>
+                            <constraint firstItem="l7W-Ew-0H9" firstAttribute="top" secondItem="CiW-r5-V2S" secondAttribute="top" id="KqQ-NS-sTm"/>
                             <constraint firstItem="dpx-60-6XN" firstAttribute="top" secondItem="l7W-Ew-0H9" secondAttribute="bottom" id="LHQ-yj-bA9"/>
                             <constraint firstAttribute="trailing" secondItem="l7W-Ew-0H9" secondAttribute="trailing" id="Pu2-lY-rMU"/>
                         </constraints>

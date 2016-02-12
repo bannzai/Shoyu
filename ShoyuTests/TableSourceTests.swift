@@ -1,5 +1,5 @@
 //
-//  SourceTests.swift
+//  TableSourceTests.swift
 //  ShoyuTests
 //
 //  Created by asai.yuki on 2015/12/12.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Shoyu
 
-class SourceTests: XCTestCase {
+class TableSourceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -19,30 +19,30 @@ class SourceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testAddSection() {
-        let source = Source().addSection(Section())
+    func testAddTableSection() {
+        let source = TableSource().addSection(TableSection())
         XCTAssertEqual(source.sections.count, 1)
         
-        source.addSection(Section())
-        source.addSection(Section())
+        source.addSection(TableSection())
+        source.addSection(TableSection())
         XCTAssertEqual(source.sections.count, 3)
         
         // Method chain
-        source.addSection(Section()).addSection(Section()).addSection(Section())
+        source.addSection(TableSection()).addSection(TableSection()).addSection(TableSection())
         XCTAssertEqual(source.sections.count, 6)
     }
     
     func testAddSections() {
-        let source = Source().addSections([Section(), Section()])
+        let source = TableSource().addSections([TableSection(), TableSection()])
         XCTAssertEqual(source.sections.count, 2)
         
         // Method chain
-        source.addSections([Section()]).addSections([Section(), Section()])
+        source.addSections([TableSection()]).addSections([TableSection(), TableSection()])
         XCTAssertEqual(source.sections.count, 5)
     }
     
-    func testCreateSection() {
-        let source = Source().createSection { _ in }
+    func testCreateTableSection() {
+        let source = TableSource().createSection { _ in }
         XCTAssertEqual(source.sections.count, 1)
         
         source.createSection { _ in }
@@ -55,7 +55,7 @@ class SourceTests: XCTestCase {
     }
     
     func testCreateSections() {
-        let source = Source()
+        let source = TableSource()
         
         // Count
         let count = UInt(2)
@@ -69,22 +69,22 @@ class SourceTests: XCTestCase {
     }
     
     func testSectionAndRowAtIndex() {
-        let source = Source()
+        let source = TableSource()
         
-        let section1 = Section()
+        let section1 = TableSection()
         let row1_1 = Row()
         let row1_2 = Row()
         section1.addRows([row1_1, row1_2])
         
-        let section2 = Section()
+        let section2 = TableSection()
         let row2_1 = Row()
         let row2_2 = Row()
         section2.addRows([row2_1, row2_2])
         
         source.addSections([section1, section2])
         
-        XCTAssert(source.sectionFor(0) as! Section === section1)
-        XCTAssert(source.sectionFor(1) as! Section === section2)
+        XCTAssert(source.sectionFor(0) as! TableSection === section1)
+        XCTAssert(source.sectionFor(1) as! TableSection === section2)
         XCTAssert(source.sectionFor(0).rowFor(0) as! Row === row1_1)
         XCTAssert(source.sectionFor(0).rowFor(1) as! Row === row1_2)
         XCTAssert(source.sectionFor(1).rowFor(0) as! Row === row2_1)
@@ -101,7 +101,7 @@ class SourceTests: XCTestCase {
         
         let sectionCount = 10
         let rowCount = 10
-        let source = Source { source in
+        let source = TableSource { source in
             source.createSections(UInt(sectionCount)) { sectionIndex, section in
                 section.createRows(UInt(rowCount)) { rowIndex, row in
                     row.reuseIdentifier = reuseIdentifierFrom(Int(sectionIndex), row: Int(rowIndex))
@@ -120,16 +120,16 @@ class SourceTests: XCTestCase {
         XCTAssertEqual(source.sectionFor(destinationIndexPath).rowFor(destinationIndexPath).reuseIdentifier, reuserIdentifierFromIndexPath(sourceIndexPath))
     }
     
-    func testBenchmarkSource() {
+    func testBenchmarkTableSource() {
         class HeaderView: UIView { }
         class FooterView: UIView { }
         class Cell: UITableViewCell {
             let label = UILabel()
         }
         
-        let source = Source()
+        let source = TableSource()
         self.measureBlock {
-            source.createSections(100) { (_, section: Section<HeaderView, FooterView>) in
+            source.createSections(100) { (_, section: TableSection<HeaderView, FooterView>) in
                 section.createHeader { header in }
                 section.createFooter { footer in }
                 section.createRows(1000) { (_, row: Row<Cell>) in

@@ -21,7 +21,7 @@ class TableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.source = Source().createSection { (section: Section<HeaderTableViewCell, FooterTableViewCell>) in
+        tableView.source = TableSource().createSection { (section: TableSection<HeaderTableViewCell, FooterTableViewCell>) in
             section.createHeader { header in
                 header.reuseIdentifier = "Header"
                 header.height = 32

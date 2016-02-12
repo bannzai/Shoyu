@@ -35,7 +35,7 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.source = Source().createSection { (section: Section) in
+        collectionView.source = CollectionSource().createSection { (section: CollectionSection) in
             section.createItems(3) { (index: UInt, item: Item<DefaultCollectionViewCell>) in
                 item.sizeFor = { _ -> CGSize? in
                     return UIScreen.mainScreen().bounds.size

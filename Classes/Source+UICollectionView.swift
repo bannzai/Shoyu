@@ -31,13 +31,13 @@ extension Source: UICollectionViewDataSource {
     }
 
     public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sectionFor(section).rowCount
+        return sectionFor(section).itemCount
     }
     
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let row = sectionFor(indexPath).rowFor(indexPath)
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(row.reuseIdentifier, forIndexPath: indexPath)
-        if let delegate = row as? ItemDelegateType {
+        let item = sectionFor(indexPath).itemFor(indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(item.reuseIdentifier, forIndexPath: indexPath)
+        if let delegate = item as? ItemDelegateType {
             delegate.configureCell(collectionView, cell: cell, indexPath: indexPath)
         }
         return cell
@@ -47,8 +47,8 @@ extension Source: UICollectionViewDataSource {
 
 extension Source: UICollectionViewDelegateFlowLayout {
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let row = sectionFor(indexPath).rowFor(indexPath)
-        if let delegate = row as? ItemDelegateType,
+        let item = sectionFor(indexPath).itemFor(indexPath)
+        if let delegate = item as? ItemDelegateType,
             let size = delegate.sizeFor(collectionView, indexPath: indexPath) {
                 return size
         }
@@ -63,7 +63,7 @@ extension Source: UICollectionViewDelegateFlowLayout {
 
 extension Source: UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let row = sectionFor(indexPath).rowFor(indexPath) as? ItemDelegateType
-        row?.didSelect(collectionView, indexPath: indexPath)
+        let item = sectionFor(indexPath).itemFor(indexPath) as? ItemDelegateType
+        item?.didSelect(collectionView, indexPath: indexPath)
     }
 }

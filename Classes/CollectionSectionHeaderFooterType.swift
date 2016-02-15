@@ -16,5 +16,4 @@ public protocol CollectionSectionHeaderFooterType {
 protocol CollectionSectionHeaderFooterDelegateType {
     func configureView(collectionView: UICollectionView, view: UICollectionReusableView, section: Int)
     func sizeFor(collectionView: UICollectionView, section: Int) -> CGSize?
-    func viewFor(collectionView: UICollectionView, section: Int) -> UICollectionReusableView?
 }

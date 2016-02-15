@@ -37,7 +37,6 @@ public class CollectionSectionHeaderFooter<Type: UICollectionReusableView>: Coll
     
     public var configureView: ((Type, SectionHeaderFooterInformation) -> Void)?
     public var sizeFor: (SectionHeaderFooterInformation -> CGSize?)?
-    public var createView: (SectionHeaderFooterInformation -> Type?)?
 }
 
 extension CollectionSectionHeaderFooter: CollectionSectionHeaderFooterDelegateType {
@@ -51,9 +50,5 @@ extension CollectionSectionHeaderFooter: CollectionSectionHeaderFooterDelegateTy
     
     func sizeFor(collectionView: UICollectionView, section: Int) -> CGSize? {
         return sizeFor?((self, collectionView, section)) ?? size
-    }
-    
-    func viewFor(collectionView: UICollectionView, section: Int) -> UICollectionReusableView? {
-        return createView?((self, collectionView, section))
     }
 }

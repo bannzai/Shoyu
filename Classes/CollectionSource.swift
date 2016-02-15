@@ -150,13 +150,6 @@ extension CollectionSource {
             return view
         }
         
-        // Create view
-        if let delegate = headerFooter as? CollectionSectionHeaderFooterDelegateType,
-            let view = delegate.viewFor(collectionView, section: indexPath.section) {
-            delegate.configureView(collectionView, view: view, section: indexPath.section)
-            return view
-        }
-        
         fatalError()
     }
     

@@ -1,5 +1,5 @@
 //
-//  SectionHeaderFooter.swift
+//  TableSectionHeaderFooter.swift
 //  Shoyu
 //
 //  Created by Asai.Yuki on 2015/12/14.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class SectionHeaderFooter<Type: UIView>: SectionHeaderFooterType {
-    public typealias SectionHeaderFooterInformation = (headerFooter: SectionHeaderFooter<Type>, tableView: UITableView, section: Int)
+public class TableSectionHeaderFooter<Type: UIView>: TableSectionHeaderFooterType {
+    public typealias SectionHeaderFooterInformation = (headerFooter: TableSectionHeaderFooter<Type>, tableView: UITableView, section: Int)
     
     public init() { }
     
-    public init(@noescape closure: (SectionHeaderFooter<Type> -> Void)) {
+    public init(@noescape closure: (TableSectionHeaderFooter<Type> -> Void)) {
         closure(self)
     }
     
@@ -42,7 +42,7 @@ public class SectionHeaderFooter<Type: UIView>: SectionHeaderFooterType {
     public var createView: (SectionHeaderFooterInformation -> Type?)?
 }
 
-extension SectionHeaderFooter: SectionHeaderFooterDelegateType {
+extension TableSectionHeaderFooter: TableSectionHeaderFooterDelegateType {
     func configureView(tableView: UITableView, view: UIView, section: Int) {
         guard let genericView = view as? Type else {
             fatalError()

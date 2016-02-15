@@ -11,8 +11,8 @@ import UIKit
 public class TableSection<HeaderType: UIView, FooterType: UIView>: TableSectionType {
     public private(set) var rows: [RowType] = []
     
-    public var header: SectionHeaderFooterType?
-    public var footer: SectionHeaderFooterType?
+    public var header: TableSectionHeaderFooterType?
+    public var footer: TableSectionHeaderFooterType?
     
     public init() { }
     
@@ -68,22 +68,22 @@ extension TableSection {
         return createRows([UInt](0..<count), closure: closure)
     }
     
-    public func createHeader(@noescape closure: (SectionHeaderFooter<HeaderType> -> Void)) -> Self {
-        return createHeaderFooter { (header: SectionHeaderFooter<HeaderType>) in
+    public func createHeader(@noescape closure: (TableSectionHeaderFooter<HeaderType> -> Void)) -> Self {
+        return createHeaderFooter { (header: TableSectionHeaderFooter<HeaderType>) in
             self.header = header
             closure(header)
         }
     }
     
-    public func createFooter(@noescape closure: (SectionHeaderFooter<FooterType> -> Void)) -> Self {
-        return createHeaderFooter { (footer: SectionHeaderFooter<FooterType>) in
+    public func createFooter(@noescape closure: (TableSectionHeaderFooter<FooterType> -> Void)) -> Self {
+        return createHeaderFooter { (footer: TableSectionHeaderFooter<FooterType>) in
             self.footer = footer
             closure(footer)
         }
     }
     
-    private func createHeaderFooter<T>(@noescape closure:(SectionHeaderFooter<T> -> Void)) -> Self {
-        closure(SectionHeaderFooter<T>())
+    private func createHeaderFooter<T>(@noescape closure:(TableSectionHeaderFooter<T> -> Void)) -> Self {
+        closure(TableSectionHeaderFooter<T>())
         return self
     }
 }

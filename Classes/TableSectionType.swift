@@ -11,8 +11,8 @@ import UIKit
 public protocol TableSectionType {
     var rows: [RowType] { get }
     
-    var header: SectionHeaderFooterType? { get }
-    var footer: SectionHeaderFooterType? { get }
+    var header: TableSectionHeaderFooterType? { get }
+    var footer: TableSectionHeaderFooterType? { get }
     
     var rowCount: Int { get }
     func rowFor(row: Int) -> RowType

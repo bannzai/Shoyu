@@ -1,5 +1,5 @@
 //
-//  SectionHeaderFooterType.swift
+//  TableSectionHeaderFooterType.swift
 //  Shoyu
 //
 //  Created by asai.yuki on 2015/12/17.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol SectionHeaderFooterType {
+public protocol TableSectionHeaderFooterType {
     var reuseIdentifier: String? { get }
     var height: CGFloat? { get set }
     var title: String? { get set }
 }
 
-protocol SectionHeaderFooterDelegateType {
+protocol TableSectionHeaderFooterDelegateType {
     func configureView(tableView: UITableView, view: UIView, section: Int)
     func heightFor(tableView: UITableView, section: Int) -> CGFloat?
     func titleFor(tableView: UITableView, section: Int) -> String?

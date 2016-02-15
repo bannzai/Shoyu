@@ -59,6 +59,8 @@ public extension CollectionSource {
     }
 }
 
+// MARK: - Collection view datasource
+
 extension CollectionSource: UICollectionViewDataSource {
     public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return sections.count
@@ -78,6 +80,17 @@ extension CollectionSource: UICollectionViewDataSource {
     }
     
 }
+
+// MARK: - Collection view delegate
+
+extension CollectionSource: UICollectionViewDelegate {
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let item = sectionFor(indexPath).itemFor(indexPath) as? ItemDelegateType
+        item?.didSelect(collectionView, indexPath: indexPath)
+    }
+}
+
+// MARK: - Collection view delegate flow layout
 
 extension CollectionSource: UICollectionViewDelegateFlowLayout {
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

@@ -35,7 +35,27 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.source = CollectionSource().createSection { (section: CollectionSection) in
+        collectionView.source = CollectionSource().createSection { (section: CollectionSection<HeaderCollectionReusableView, FooterCollectionReusableView>) in
+            section.createHeader { header in
+                header.reuseIdentifier = "Header"
+                header.size = CGSizeMake(UIScreen.mainScreen().bounds.size.width, 100)
+                header.configureView = { headerView, _ in
+                    headerView.label.text = "Custom view header"
+                    headerView.backgroundColor = UIColor.blueColor()
+                }
+            }
+            
+            section.createFooter { footer in
+                footer.reuseIdentifier = "Footer"
+                footer.configureView = { footerView, _ in
+                    footerView.label.text = "Custom view footer"
+                    footerView.backgroundColor = UIColor.orangeColor()
+                }
+                footer.sizeFor = { _ -> CGSize? in
+                    return CGSizeMake(UIScreen.mainScreen().bounds.width, 30)
+                }
+            }
+            
             section.createItems(3) { (index: UInt, item: Item<DefaultCollectionViewCell>) in
                 item.sizeFor = { _ -> CGSize? in
                     return UIScreen.mainScreen().bounds.size
@@ -104,6 +124,13 @@ class DefaultCollectionViewCell: UICollectionViewCell {
         print("DefaultviewCell deinit")
     }
 }
+
+class AbstractHeaderFooterCollectionReusableView: UICollectionReusableView {
+    @IBOutlet weak var label: UILabel!
+}
+
+class HeaderCollectionReusableView: AbstractHeaderFooterCollectionReusableView { }
+class FooterCollectionReusableView: AbstractHeaderFooterCollectionReusableView { }
 
 class CollectionView: UICollectionView {
     

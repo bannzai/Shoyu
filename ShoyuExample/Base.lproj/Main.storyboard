@@ -41,8 +41,8 @@
                                     <segue destination="6Ld-bI-o9t" kind="push" id="asK-hL-FOY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8W-5P-89d">
-                                <rect key="frame" x="130" y="132" width="69" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8W-5P-89d">
+                                <rect key="frame" x="125.5" y="112" width="69" height="30"/>
                                 <state key="normal" title="Collection"/>
                                 <connections>
                                     <segue destination="wWD-mp-zBL" kind="push" id="MOB-3L-3QW"/>
@@ -131,8 +131,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Footer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-ps-hcm">
-                                                    <rect key="frame" x="15" y="9" width="56" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-ps-hcm">
+                                                    <rect key="frame" x="15" y="8" width="50" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -182,13 +182,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="3iP-YC-l2n">
                                     <size key="itemSize" width="164" height="185"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DefaultCollectionViewCell" id="IL3-BG-hXv" customClass="DefaultCollectionViewCell" customModule="ShoyuExample" customModuleProvider="target">
-                                        <rect key="frame" x="78" y="64" width="164" height="185"/>
+                                        <rect key="frame" x="78" y="114" width="164" height="185"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="164" height="185"/>
@@ -225,6 +225,44 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="iBF-WH-sUT" customClass="HeaderCollectionReusableView" customModule="ShoyuExample" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header or Footer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLL-Zc-NY2">
+                                            <rect key="frame" x="10" y="14" width="130.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lLL-Zc-NY2" firstAttribute="leading" secondItem="iBF-WH-sUT" secondAttribute="leading" constant="10" id="3rr-yS-1hU"/>
+                                        <constraint firstItem="lLL-Zc-NY2" firstAttribute="centerY" secondItem="iBF-WH-sUT" secondAttribute="centerY" id="Fsr-bT-UXs"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="label" destination="lLL-Zc-NY2" id="vbK-pi-Ige"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Footer" id="J7i-6O-rJC" customClass="FooterCollectionReusableView" customModule="ShoyuExample" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="299" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header or Footer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Om-xW-dee">
+                                            <rect key="frame" x="8" y="14" width="130.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5Om-xW-dee" firstAttribute="centerY" secondItem="J7i-6O-rJC" secondAttribute="centerY" id="XB7-Es-vty"/>
+                                        <constraint firstItem="5Om-xW-dee" firstAttribute="leading" secondItem="J7i-6O-rJC" secondAttribute="leading" constant="8" id="x2B-iD-xkr"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="label" destination="5Om-xW-dee" id="1CJ-F6-cPU"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJY-At-USE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="889"/>
+            <point key="canvasLocation" x="176" y="1007"/>
         </scene>
     </scenes>
 </document>

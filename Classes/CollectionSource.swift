@@ -79,6 +79,12 @@ extension CollectionSource: UICollectionViewDataSource {
         return cell
     }
     
+    public func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        guard let headerFooter = sectionFor(indexPath.section).reusableViewFor(kind) else {
+            fatalError()
+        }
+        return sectionHeaderFooterViewFor(headerFooter, collectionView: collectionView, kind: kind, indexPath: indexPath)
+    }
 }
 
 // MARK: - Collection view delegate
@@ -99,18 +105,66 @@ extension CollectionSource: UICollectionViewDelegateFlowLayout {
             let size = delegate.sizeFor(collectionView, indexPath: indexPath) {
                 return size
         }
+        
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             return flowLayout.itemSize
         }
+        
         fatalError()
     }
+    
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            fatalError()
+        }
+        
+        guard let header = sectionFor(section).reusableViewFor(UICollectionElementKindSectionHeader) else {
+            return CGSizeZero
+        }
+        return sectionHeaderFooterSizeFor(header, collectionView: collectionView, section: section) ?? flowLayout.headerReferenceSize
+    }
+    
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize{
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            fatalError()
+        }
+        
+        guard let footer = sectionFor(section).reusableViewFor(UICollectionElementKindSectionFooter) else {
+            return CGSizeZero
+        }
+        return sectionHeaderFooterSizeFor(footer, collectionView: collectionView, section: section) ?? flowLayout.headerReferenceSize
+    }
+    
 }
 
-// MARK: - Table view delegate
+// MARK: - Private method
 
-extension CollectionSource: UICollectionViewDelegate {
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let item = sectionFor(indexPath).itemFor(indexPath) as? ItemDelegateType
-        item?.didSelect(collectionView, indexPath: indexPath)
+extension CollectionSource {
+    private func sectionHeaderFooterViewFor(headerFooter: CollectionSectionHeaderFooterType, collectionView: UICollectionView, kind: String, indexPath: NSIndexPath) -> UICollectionReusableView {
+        // Dequeue
+        if let identifier = headerFooter.reuseIdentifier {
+            let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: identifier, forIndexPath: indexPath)
+            if let delegate = headerFooter as? CollectionSectionHeaderFooterDelegateType {
+                delegate.configureView(collectionView, view: view, section: indexPath.section)
+            }
+            return view
+        }
+        
+        // Create view
+        if let delegate = headerFooter as? CollectionSectionHeaderFooterDelegateType,
+            let view = delegate.viewFor(collectionView, section: indexPath.section) {
+            delegate.configureView(collectionView, view: view, section: indexPath.section)
+            return view
+        }
+        
+        fatalError()
+    }
+    
+    private func sectionHeaderFooterSizeFor(headerFooter: CollectionSectionHeaderFooterType, collectionView: UICollectionView, section: Int) -> CGSize? {
+        if let delegate = headerFooter as? CollectionSectionHeaderFooterDelegateType,
+            let size = delegate.sizeFor(collectionView, section: section) {
+                return size
+        }
+        return nil
     }
 }

@@ -25,3 +25,5 @@ public extension UICollectionView {
         }
     }
 }
+
+

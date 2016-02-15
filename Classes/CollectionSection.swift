@@ -8,8 +8,11 @@
 
 import UIKit
 
-public final class CollectionSection<HeaderType: UIView, FooterType: UIView>: CollectionSectionType {
+public final class CollectionSection<HeaderType: UICollectionReusableView, FooterType: UICollectionReusableView>: CollectionSectionType {
     public private(set) var items: [ItemType] = []
+    
+    public var header: CollectionSectionHeaderFooterType?
+    public var footer: CollectionSectionHeaderFooterType?
     
     public init() { }
     
@@ -28,6 +31,18 @@ extension CollectionSection {
     public func itemFor(indexPath: NSIndexPath) -> ItemType {
         return itemFor(indexPath.item)
     }
+    
+    public func reusableViewFor(kind: String) -> CollectionSectionHeaderFooterType? {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            return header
+        case UICollectionElementKindSectionFooter:
+            return footer
+        default:
+            fatalError() // TODO: Custom kind
+        }
+    }
+    
 }
 
 extension CollectionSection {
@@ -55,5 +70,24 @@ extension CollectionSection {
     
     public func createItems<T>(count: UInt, @noescape closure: ((UInt, Item<T>) -> Void)) -> Self {
         return createItems([UInt](0..<count), closure: closure)
+    }
+    
+    public func createHeader(@noescape closure: (CollectionSectionHeaderFooter<HeaderType> -> Void)) -> Self {
+        return createHeaderFooter { (header: CollectionSectionHeaderFooter<HeaderType>) in
+            self.header = header
+            closure(header)
+        }
+    }
+    
+    public func createFooter(@noescape closure: (CollectionSectionHeaderFooter<FooterType> -> Void)) -> Self {
+        return createHeaderFooter { (footer: CollectionSectionHeaderFooter<FooterType>) in
+            self.footer = footer
+            closure(footer)
+        }
+    }
+    
+    private func createHeaderFooter<T>(@noescape closure:(CollectionSectionHeaderFooter<T> -> Void)) -> Self {
+        closure(CollectionSectionHeaderFooter<T>())
+        return self
     }
 }
